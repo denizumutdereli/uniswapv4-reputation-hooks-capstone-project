@@ -1,0 +1,49 @@
+anvil --block-time 1 --gas-limit 10000000 --port 8545
+
+clear;forge test -vvvv --fork-url http://127.0.0.1:8545
+
+clear;forge script script/AnvilDeployment.s.sol:ReputationHookDeployer --rpc-url http://127.0.0.1:8545 --broadcast --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --block-time 10 -vvvv
+
+clear;tsc;node ../dist/app.js
+
+anvil --hardfork cancun
+
+forge-std/=lib/forge-std/src/
+
+
+
+
+
+
+foundtry.toml
+
+
+[profile.default]
+# Source files and output directory
+src = "src"
+out = "out"
+libs = ["lib"]
+fs_permissions = [{ access = "read-write", path = "./post_deployments"}]
+
+# Compilation and optimization settings
+solc_version = '0.8.26'
+evm_version = "cancun"
+optimize = true
+
+# Optimizer settings
+optimizer_runs = 50 # Normal circumcentence we would use eternal storage or even 2535 diamond for metapool
+via_ir = true
+
+# Debug settings
+debug = false
+
+# RPC settings for local network interactions
+rpc_url = "http://127.0.0.1:8545"
+
+# Enable Foreign Function Interface (FFI)
+ffi = true
+
+
+
+
+

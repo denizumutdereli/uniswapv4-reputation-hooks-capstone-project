@@ -1,0 +1,22 @@
+{
+  "name": "brevis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "brevisIntegration.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.1",
+    "brevis-sdk-typescript": "^1.2.5",
+    "ethers": "^5.7.2",
+    "google-protobuf": "^3.21.4",
+    "snarkyjs": "^0.12.1"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.15.12"
+  }
+}
