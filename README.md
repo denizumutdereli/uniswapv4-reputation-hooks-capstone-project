@@ -103,45 +103,6 @@ Add the following line to your remappings.txt file due to vmJsonWrite permission
 
 forge-std/=lib/forge-std/src/
 
-
-## Architecture Diagram
-
-flowchart TD
-    subgraph User Interaction
-        A[Liquidity Provider / Trader]
-    end
-
-    subgraph Uniswap V4 Pool
-        B[Liquidity Pool]
-        C[Uniswap V4 Hook Contract]
-    end
-
-    subgraph Reputation System
-        D[MetaPool Library]
-        E[Reputation Logic Contract]
-        F[Brevis ZK Computation]
-        G[Reputation Oracle (ERC-1155)]
-    end
-
-    subgraph Security Layer
-        H[EigenLayer]
-    end
-
-    subgraph Oracle Services
-        I[Chainlink]
-    end
-
-    A -- Provides Liquidity / Trades --> B
-    B -- Invokes Hooks --> C
-    C -- Sends User Activity --> D
-    D -- Updates --> E
-    E -- Sends Data --> F
-    F -- Computes Reputation --> G
-    G -- Updates Reputation Tokens --> A
-    G -- Interacts With --> H
-    C -- Requests Data --> I
-    I -- Provides Data --> C
-
 ## References
 
 - [Uniswap V4 Hooks](https://uniswap.org/blog/uniswap-v4)
